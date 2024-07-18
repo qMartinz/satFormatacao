@@ -6,85 +6,98 @@
     <title>TI Formatação</title>
 </head>
 <body>
-    <form id="formatacao">
-        <h1>Formulário de Formatação</h1>
-        <section id="planilha">
-            <h2>Selecione a máquina</h2>
-            <select name="cs" id="cs">
-                Alterar opções baseadas nas opções da planilha de dispositivos
-                <option value="001">CS-001</option>
-                <option value="002">CS-002</option> ...
-            </select>
-            <label for="cs">Máquina formatada</label>
-            <div id="info">
-                <input type="text" name="ambiente" id="ambiente" placeholder="Alterar ambiente?">
-                <input type="text" name="setor" id="setor" placeholder="Alterar setor?">
-                <input type="text" name="usuario" id="usuario" placeholder="Alterar usuário?">
-            </div>
-        </section>
-        <section id="preparacao">
-            <h2>Prepare para a formatação</h2>
-            <div id="verifbackup"> (Esconder se não for do ADM) <input type="checkbox" name="verifbackupc" id="verifbackupc"> <label for="verifbackupc">Verificou o back-up?</label> </div>
-            <div id="sopr"> <input type="checkbox" name="soprc" id="soprc"> <label for="soprc">Passou o soprador?</label> </div>
-            <div id="pastat"> <input type="checkbox" name="pastatc" id="pastatc"> <label for="pastatc">Trocou a pasta-térmica?</label> </div>
-            <div id="limpext"> <input type="checkbox" name="limpextc" id="limpextc"> <label for="limpextc">Realizou a limpeza externa?</label> </div>
-        </section>
-        <section id="instalacao">
-            <h2>Realize a instalação do sistema operacional</h2>
-            <select name="os" id="os">
-                <option value="win10">Windows 10</option>
-                <option value="win7">Windows 7</option>
-            </select>
-            <label for="os">Sistema operacional instalado</label>
-            <div id="img"> <input type="checkbox" name="imgc" id="imgc"> <label for="imgc">Utilizou uma imagem pronta?</label> </div>
-            <div id="clone"> (Esconder se não for do ADM) <input type="checkbox" name="clonec" id="clonec"> <label for="clonec">Instalou o clone do HD/SSD?</label> </div>
-        </section>
-        <section id="software">
-            <h2>Instale os softwares necessários</h2>
-            <select name="driver" id="driver">
-                <option value="win">Drivers Nativos do Windows</option>
-                <option value="fab">Site do Fabricante</option>
-            </select>
-            <label for="driver">Fonte dos drivers</label>
-            <div id="ninite">
-                <h3>Instale o Ninite</h3>
-                <div id="chrome"> <input type="checkbox" name="chromec" id="chromec"> <label for="chromec">Chrome</label> </div>
-                <div id="firefox"> <input type="checkbox" name="firefoxc" id="firefoxc"> <label for="firefoxc">Firefox</label> </div>
-                <div id="foxit"> <input type="checkbox" name="foxitc" id="foxitc"> <label for="foxitc">Foxit Reader</label> </div>
-                <div id="vlc"> <input type="checkbox" name="vlcc" id="vlcc"> <label for="vlcc">VLC</label> </div>
-                <div id="klite"> <input type="checkbox" name="klitec" id="klitec"> <label for="klitec">K-Lite Codecs</label> </div>
-                <div id="runtimes"> <input type="checkbox" name="runtimesc" id="runtimesc"> <label for="runtimesc">Todos os Runtimes</label> </div>
-                <div id="winrar"> <input type="checkbox" name="winrarc" id="winrarc"> <label for="winrarc">Winrar</label> </div>
-            </div>
-            <div id="softadm">
-                (Esconder se não for do ADM) <h3>Instale as necessidades do Administrativo</h3>
-                <div id="office"> <input type="checkbox" name="officec" id="officec"> <label for="officec">Pacote Office</label> </div>
-                <div id="anydesk"> <input type="checkbox" name="anydeskc" id="anydeskc"> <label for="anydeskc">Anydesk</label> </div>
-                <div id="eduxe"> <input type="checkbox" name="eduxec" id="eduxec"> <label for="eduxec">Eduxe</label> </div>
-                <div id="sigaa"> <input type="checkbox" name="sigaac" id="sigaac"> <label for="sigaac">Sigaa</label> </div>
-                <div id="spooler"> <input type="checkbox" name="spoolerc" id="spoolerc"> <label for="spoolerc">Impressoras necessárias</label> </div>
-                <div id="backup"> <input type="checkbox" name="backup" id="backup"> <label for="backup">Backup de documentos</label> </div>
-            </div>
-            <div id="softlab">
-                (Esconder se não for do Lab) <h3>Instale as necessidades do Laboratório</h3>
-                <div id="office"> <input type="checkbox" name="officec" id="officec"> <label for="officec">Pacote Office</label> </div>
-                <div id="prof"> <input type="checkbox" name="profc" id="profc"> <label for="profc">Verificou as necessidades dos professores?</label> </div>
-            </div>
-        </section>
-        <section id="finalinst">
-            <h2>Finalize a formatação</h2>
-            <div id="desativarfire"> <input type="checkbox" name="desativarfirec" id="desativarfirec"> <label for="desativarfirec">Desative o Firewall</label> </div>
-            <div id="osoriginal"> <input type="checkbox" name="osoriginal" id="osoriginal"> <label for="osoriginal">Aplique a licença do Windows se houver</label> </div>
-            (Esconder se osoriginal checked) <div id="oscrack">
-                <div id="desativardefender"> <input type="checkbox" name="desativardefenderc" id="desativardefenderc"> <label for="desativardefenderc">Desative o Windows Defender</label> </div>
-                <div id="crack"> <input type="checkbox" name="crackc" id="crackc"> <label for="crackc">Ative o Windows crackeado</label> </div>
-            </div>
-            <div id="vnc"> <input type="checkbox" name="vncc" id="vncc"> <label for="vncc">Instale o RealVNC</label> </div>
-            <div id="bitdefender"> <input type="checkbox" name="bitdefenderc" id="bitdefenderc"> <label for="bitdefenderc">Instale o BitDefender</label> </div>
-            <div id="updt"> <input type="checkbox" name="updtc" id="updtc"> <label for="updtc">Rode o Windows Update</label> </div>
-            <div id="dominio"> <input type="checkbox" name="dominioc" id="dominioc"> <label for="dominioc">Coloque o computador no domínio com seu devido nome</label> </div>
-        </section>
-        <button type="submit">Finalizar Formatação</button>
-    </form>
+    <div id="login">
+        <button id="authorize_button" onclick="authorizeForm()">Login</button>
+        <button id="signout_button" onclick="handleSignoutClick()">Logout</button>
+    </div>
+
+    <script type="text/javascript" src="./auth.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+
+    <script type="text/javascript" src="./script.js"></script>
+
+    <div id="content" hidden>
+        <form id="formatacao">
+            <h1>Formulário de Formatação</h1>
+            <section id="planilha">
+                <h2>Selecione a máquina</h2>
+                <select name="cs" id="cs">
+                    Alterar opções baseadas nas opções da planilha de dispositivos
+                    <option value="001">CS-001</option>
+                    <option value="002">CS-002</option> ...
+                </select>
+                <label for="cs">Máquina formatada</label>
+                <div id="info">
+                    <input type="text" name="ambiente" id="ambiente" placeholder="Alterar ambiente?">
+                    <input type="text" name="setor" id="setor" placeholder="Alterar setor?">
+                    <input type="text" name="usuario" id="usuario" placeholder="Alterar usuário?">
+                </div>
+            </section>
+            <section id="preparacao">
+                <h2>Prepare para a formatação</h2>
+                <div id="verifbackup" hidden> <input type="checkbox" name="verifbackupc" id="verifbackupc"> <label for="verifbackupc">Verificou o back-up?</label> </div>
+                <div id="sopr"> <input type="checkbox" name="soprc" id="soprc"> <label for="soprc">Passou o soprador?</label> </div>
+                <div id="pastat"> <input type="checkbox" name="pastatc" id="pastatc"> <label for="pastatc">Trocou a pasta-térmica?</label> </div>
+                <div id="limpext"> <input type="checkbox" name="limpextc" id="limpextc"> <label for="limpextc">Realizou a limpeza externa?</label> </div>
+            </section>
+            <section id="instalacao">
+                <h2>Realize a instalação do sistema operacional</h2>
+                <select name="os" id="os">
+                    <option value="win10">Windows 10</option>
+                    <option value="win7">Windows 7</option>
+                </select>
+                <label for="os">Sistema operacional instalado</label>
+                <div id="img"> <input type="checkbox" name="imgc" id="imgc"> <label for="imgc">Utilizou uma imagem pronta?</label> </div>
+                <div id="clone" hidden> <input type="checkbox" name="clonec" id="clonec"> <label for="clonec">Instalou o clone do HD/SSD?</label> </div>
+            </section>
+            <section id="software">
+                <h2>Instale os softwares necessários</h2>
+                <select name="driver" id="driver">
+                    <option value="win">Drivers Nativos do Windows</option>
+                    <option value="fab">Site do Fabricante</option>
+                </select>
+                <label for="driver">Fonte dos drivers</label>
+                <div id="ninite">
+                    <h3>Instale o Ninite</h3>
+                    <div id="chrome"> <input type="checkbox" name="chromec" id="chromec"> <label for="chromec">Chrome</label> </div>
+                    <div id="firefox"> <input type="checkbox" name="firefoxc" id="firefoxc"> <label for="firefoxc">Firefox</label> </div>
+                    <div id="foxit"> <input type="checkbox" name="foxitc" id="foxitc"> <label for="foxitc">Foxit Reader</label> </div>
+                    <div id="vlc"> <input type="checkbox" name="vlcc" id="vlcc"> <label for="vlcc">VLC</label> </div>
+                    <div id="klite"> <input type="checkbox" name="klitec" id="klitec"> <label for="klitec">K-Lite Codecs</label> </div>
+                    <div id="runtimes"> <input type="checkbox" name="runtimesc" id="runtimesc"> <label for="runtimesc">Todos os Runtimes</label> </div>
+                    <div id="winrar"> <input type="checkbox" name="winrarc" id="winrarc"> <label for="winrarc">Winrar</label> </div>
+                </div>
+                <div id="softadm" hidden>
+                    <h3>Instale as necessidades do Administrativo</h3>
+                    <div id="officeadm"> <input type="checkbox" name="officeadmc" id="officeadmc"> <label for="officeadmc">Pacote Office</label> </div>
+                    <div id="anydesk"> <input type="checkbox" name="anydeskc" id="anydeskc"> <label for="anydeskc">Anydesk</label> </div>
+                    <div id="eduxe"> <input type="checkbox" name="eduxec" id="eduxec"> <label for="eduxec">Eduxe</label> </div>
+                    <div id="sigaa"> <input type="checkbox" name="sigaac" id="sigaac"> <label for="sigaac">Sigaa</label> </div>
+                    <div id="spooler"> <input type="checkbox" name="spoolerc" id="spoolerc"> <label for="spoolerc">Impressoras necessárias</label> </div>
+                    <div id="backup"> <input type="checkbox" name="backupc" id="backupc"> <label for="backupc">Backup de documentos</label> </div>
+                </div>
+                <div id="softlab" hidden>
+                    <h3>Instale as necessidades do Laboratório</h3>
+                    <div id="officelab"> <input type="checkbox" name="officelabc" id="officelabc"> <label for="officelabc">Pacote Office</label> </div>
+                    <div id="prof"> <input type="checkbox" name="profc" id="profc"> <label for="profc">Verificou as necessidades dos professores?</label> </div>
+                </div>
+            </section>
+            <section id="finalinst">
+                <h2>Finalize a formatação</h2>
+                <div id="desativarfire"> <input type="checkbox" name="desativarfirec" id="desativarfirec"> <label for="desativarfirec">Desative o Firewall</label> </div>
+                <div id="osoriginal"> <input type="checkbox" name="osoriginalc" id="osoriginalc"> <label for="osoriginalc">Aplique a licença do Windows se houver</label> </div>
+                <div id="oscrack" hidden>
+                    <div id="desativardefender"> <input type="checkbox" name="desativardefenderc" id="desativardefenderc"> <label for="desativardefenderc">Desative o Windows Defender</label> </div>
+                    <div id="crack"> <input type="checkbox" name="crackc" id="crackc"> <label for="crackc">Ative o Windows crackeado</label> </div>
+                </div>
+                <div id="vnc"> <input type="checkbox" name="vncc" id="vncc"> <label for="vncc">Instale o RealVNC</label> </div>
+                <div id="bitdefender"> <input type="checkbox" name="bitdefenderc" id="bitdefenderc"> <label for="bitdefenderc">Instale o BitDefender</label> </div>
+                <div id="updt"> <input type="checkbox" name="updtc" id="updtc"> <label for="updtc">Rode o Windows Update</label> </div>
+                <div id="dominio"> <input type="checkbox" name="dominioc" id="dominioc"> <label for="dominioc">Coloque o computador no domínio com seu devido nome</label> </div>
+            </section>
+            <button type="submit" id="submit">Finalizar Formatação</button>
+        </form>
+    </div>
 </body>
 </html>
