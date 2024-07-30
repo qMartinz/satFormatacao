@@ -33,40 +33,30 @@ async function changeOptions(){
             info.tipo = response.result.sheets[0].data[0].rowData[0]["values"][4]["formattedValue"];
             info.ultformatacao = response.result.sheets[0].data[0].rowData[0]["values"][5]["formattedValue"];
             info.setor = response.result.sheets[0].data[0].rowData[3]["values"][1]["formattedValue"];
-            console.log("success!", info);
             
-            if (info) {                    
-                switch (info.setor){
-                    case 'Administrativo':
-                    showExtraItems(1);
-                    break;
-                    case 'Laboratório':
-                    showExtraItems(2);
-                    break;
-                    default:
-                    showExtraItems(3);
-                    break;
-                }
-            }
+            showExtraItems(getSetorId(info.setor));
         });
     });
     
     document.getElementById("setor").addEventListener('change', function(e) {        
         if (e.target.value > 0) {
-            showExtraItems(e.target.value);
+            showExtraItems(Number(e.target.value));
             return;
         }
-        
-        
-        showExtraItems(info.setor);
+
+        showExtraItems(getSetorId(info.setor));
     })
 }
 
 function showExtraItems(setor){
     document.getElementById('verifbackup').hidden = true;
+    document.getElementById('verifbackupc').checked = false;
     document.getElementById('clone').hidden = true;
+    document.getElementById('clonec').checked = false;
     document.getElementById('softadm').hidden = true;
+    document.getElementById('softadm').querySelectorAll('input').forEach(element => element.checked = false);
     document.getElementById('softlab').hidden = true;
+    document.getElementById('softlab').querySelectorAll('input').forEach(element => element.checked = false);
     
     switch (setor){
         case 1:
@@ -94,4 +84,15 @@ function setIdByName(name){
             });
         });
     }));
+}
+
+function getSetorId(setor){
+    switch (info.setor){
+        case 'Administrativo':
+        return 1;
+        case 'Laboratório':
+        return 2;
+        default:
+        return 3;
+    }
 }
