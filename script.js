@@ -87,7 +87,7 @@ function setIdByName(name){
 }
 
 function getSetorId(setor){
-    switch (info.setor){
+    switch (setor){
         case 'Administrativo':
         return 1;
         case 'Laboratório':
