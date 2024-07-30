@@ -15,6 +15,7 @@
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 
+    <script type="text/javascript" src="./gugapi.js"></script>
     <script type="text/javascript" src="./script.js"></script>
 
     <div id="content" hidden>
@@ -23,15 +24,27 @@
             <section id="planilha">
                 <h2>Selecione a máquina</h2>
                 <select name="cs" id="cs">
-                    Alterar opções baseadas nas opções da planilha de dispositivos
-                    <option value="001">CS-001</option>
-                    <option value="002">CS-002</option> ...
+                    <option value="000">Selecione</option>
                 </select>
                 <label for="cs">Máquina formatada</label>
                 <div id="info">
-                    <input type="text" name="ambiente" id="ambiente" placeholder="Alterar ambiente?">
-                    <input type="text" name="setor" id="setor" placeholder="Alterar setor?">
-                    <input type="text" name="usuario" id="usuario" placeholder="Alterar usuário?">
+                    <div>
+                        <label for="ambiente">Alterar ambiente?</label>
+                        <input type="text" name="ambiente" id="ambiente">
+                    </div>
+                    <div>
+                        <label for="setor">Alterar setor?</label>
+                        <select name="setor" id="setor">
+                            <option value="0">Não alterar</option>
+                            <option value="1">Administrativo</option>
+                            <option value="2">Laboratório</option>
+                            <option value="3">Pedagógico</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="usuario">Alterar usuário?</label>
+                        <input type="text" name="usuario" id="usuario">
+                    </div>
                 </div>
             </section>
             <section id="preparacao">

@@ -71,7 +71,6 @@ tokenClient.callback = async (resp) => {
     document.getElementById('signout_button').style.visibility = 'visible';
     document.getElementById('content').hidden = false;
     changeOptions();
-    setIdByName("CS-001");
 };
 
 tokenClient.error_callback = async (err) => {
