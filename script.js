@@ -1,6 +1,23 @@
 var sheetId;
 var info = {};
 
+async function spreadsheetsGet(sheetId, range, callback){
+    await new Promise(resolve => setTimeout(() => {
+        gapi.client.load('sheets', 'v4', function() {
+            gapi.client.sheets.spreadsheets.get({
+                spreadsheetId: sheetId,
+                ranges: range,
+                includeGridData: true
+            }).then((response) => {
+                callback(response);
+                resolve();
+            }, (error) => {
+                console.error('Error on spreadsheet get', error);
+            });
+        });
+    }));
+}
+
 async function changeOptions(){
     spreadsheetsGet('1VNOx2dAiFEhxrO2bofBCyr6Qs-BVBc7dyV0SuGzXDbU', 'Dispositivos!A4:A', function(response) {
         const rowData = response.result.sheets[0].data[0].rowData;
@@ -96,3 +113,17 @@ function getSetorId(setor){
         return 3;
     }
 }
+
+document.addEventListener('load', function(){
+    document.getElementById("formatacao").addEventListener('submit', function(e) {
+        const data = new FormData(e.target);
+        const action = e.target.action;
+        fetch(action, {
+            method: 'POST',
+            body: data,
+        })
+        .then(() => {
+            console.log(data);
+        });
+    });
+});
