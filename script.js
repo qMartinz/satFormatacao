@@ -114,16 +114,11 @@ function getSetorId(setor){
     }
 }
 
-document.addEventListener('load', function(){
+document.addEventListener('DOMContentLoaded', function(){
     document.getElementById("formatacao").addEventListener('submit', function(e) {
+        e.preventDefault();
         const data = new FormData(e.target);
         const action = e.target.action;
-        fetch(action, {
-            method: 'POST',
-            body: data,
-        })
-        .then(() => {
-            console.log(data);
-        });
+        console.log(data.get('cs'));
     });
 });
