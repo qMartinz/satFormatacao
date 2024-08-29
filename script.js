@@ -63,6 +63,16 @@ async function changeOptions(){
 
         showExtraItems(getSetorId(info.setor));
     })
+
+    document.getElementById("osoriginalc").addEventListener('change', function(e) {        
+        if (e.target.checked) {
+            document.getElementById('oscrack').hidden = true;
+            document.getElementById('desativardefenderc').checked = false;
+            document.getElementById('crackc').checked = false;
+        } else {
+            document.getElementById('oscrack').hidden = false;
+        }
+    })
 }
 
 function showExtraItems(setor){
@@ -115,10 +125,99 @@ function getSetorId(setor){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById("formatacao").addEventListener('submit', function(e) {
+    document.getElementById("formatacao").addEventListener('submit', async function(e) {
         e.preventDefault();
         const data = new FormData(e.target);
         const action = e.target.action;
-        console.log(data.get('cs'));
+        const sheetrange = 'Formatações';
+    
+        var alterarsetor = "Não alterar";
+        switch (data.get('setor')) {
+            case 1:
+                alterarsetor = "Administrativo";
+                break;
+            case 2:
+                alterarsetor = "Laboratório";
+                break;
+            case 3:
+                alterarsetor = "Pedagógico";
+                break;
+        }
+
+        const values = [
+            [new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear(), data.get('ambiente') === "" ? "Não alterar" : data.get('ambiente'), alterarsetor, data.get('usuario') === "" ? "Não alterar" : data.get('usuario')]
+        ];
+
+        values[0].push(data.get('verifbackupc') === "on" ? "Feito" : "Não");
+        values[0].push(data.get('soprc') === "on" ? "Feito" : "Não");
+        values[0].push(data.get('pastatc') === "on" ? "Feito" : "Não");
+        values[0].push(data.get('limpextc') === "on" ? "Feito" : "Não");
+
+        var os = "";
+        switch (data.get("os")){
+            case "win7":
+                os = "Windows 7";
+                break;
+            case "win10":
+                os = "Windows 10";
+                break;
+        }
+        values[0].push(os);
+
+        values[0].push(data.get('imgc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('clonec') === "on" ? "Feito" : "Não");
+
+        var driver = "";
+        switch (data.get("driver")){
+            case "win":
+                driver = "Nativos do Windows";
+                break;
+            case "fab":
+                driver = "Fabricante";
+                break;
+        }
+        values[0].push(driver);
+
+        var softwares = [];
+        if (data.get('chromec') === 'on') softwares.push('Chrome');
+        if (data.get('firefoxc') === 'on') softwares.push('Firefox');
+        if (data.get('foxitc') === 'on') softwares.push('Foxit Reader');
+        if (data.get('vlcc') === 'on') softwares.push('VLC');
+        if (data.get('klitec') === 'on') softwares.push('KLite Codecs');
+        if (data.get('runtimesc') === 'on') softwares.push('Runtimes');
+        if (data.get('winrarc') === 'on') softwares.push('Winrar');
+        if (data.get('officeadmc') === 'on' || data.get('officelab') === 'on') softwares.push('Pacote Office');
+        if (data.get('anydeskc') === 'on') softwares.push('Anydesk');
+        if (data.get('eduxec') === 'on') softwares.push('Eduxe');
+        if (data.get('sigaac') === 'on') softwares.push('Sigaa');
+        if (data.get('spoolerc') === 'on') softwares.push('Spoolers de Impressoras');
+        if (data.get('backupc') === 'on') softwares.push('Restaurado o Backup');
+        if (data.get('profc') === 'on') softwares.push('Necessidades do Professor');
+
+        values[0].push(softwares.toString().replaceAll(",", ", "));
+
+        values[0].push(data.get('desativarfirec') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('osoriginalc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('crackc') === "on" || data.get('osoriginalc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('vncc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('bitdefenderc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('updtc') === "on" ? "Sim" : "Não");
+        values[0].push(data.get('dominioc') === "on" ? "Colocado" : "Não");
+        
+        const resource = {
+            values,
+        };
+        
+        try {
+            const result1 = await gapi.client.sheets.spreadsheets.values.append({
+                spreadsheetId: sheetId,
+                range: sheetrange,
+                valueInputOption: 'RAW',
+                insertDataOption: 'INSERT_ROWS',
+                resource,
+            });
+        } catch (err) {
+            console.error('Erro ao adicionar dados:', err);
+        }
     });
 });
