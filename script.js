@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         const data = new FormData(e.target);
         const action = e.target.action;
-        const sheetrange = 'Formatações';
     
         var alterarsetor = "Não alterar";
         switch (data.get('setor')) {
@@ -209,15 +208,95 @@ document.addEventListener('DOMContentLoaded', function(){
         };
         
         try {
-            const result1 = await gapi.client.sheets.spreadsheets.values.append({
+            const result = await gapi.client.sheets.spreadsheets.values.append({
                 spreadsheetId: sheetId,
-                range: sheetrange,
+                range: 'Formatações',
                 valueInputOption: 'RAW',
                 insertDataOption: 'INSERT_ROWS',
                 resource,
             });
         } catch (err) {
             console.error('Erro ao adicionar dados:', err);
+        }
+
+        var dateValue = [
+            [ new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear() ]
+        ];
+
+        try {
+            const result2 = await gapi.client.sheets.spreadsheets.values.update({
+                spreadsheetId: sheetId,
+                range: 'Página1!F2',
+                values: dateValue,
+                valueInputOption: 'USER_ENTERED'
+            });
+        } catch (err) {
+            console.error('Erro ao atualizar planilha', err);
+        }
+
+        if (data.get('ambiente') !== ""){
+            var ambientevalue = [
+                [ data.get('ambiente') ]
+            ]
+
+            try {
+                const result3 = await gapi.client.sheets.spreadsheets.values.update({
+                    spreadsheetId: sheetId,
+                    range: 'Página1!B2',
+                    values: ambientevalue,
+                    valueInputOption: 'USER_ENTERED'
+                });
+            } catch (err) {
+                console.error('Erro ao atualizar planilha', err);
+            }
+        }
+
+        if (data.get('usuario') !== ""){
+            var usuariovalue = [
+                [ data.get('usuario') ]
+            ]
+
+            try {
+                const result3 = await gapi.client.sheets.spreadsheets.values.update({
+                    spreadsheetId: sheetId,
+                    range: 'Página1!D2',
+                    values: usuariovalue,
+                    valueInputOption: 'USER_ENTERED'
+                });
+            } catch (err) {
+                console.error('Erro ao atualizar planilha', err);
+            }
+        }
+
+        if (data.get('setor') > 0){
+
+            var newsetor = "Não alterar";
+            switch (data.get('setor')) {
+                case 1:
+                    newsetor = "Administrativo";
+                    break;
+                case 2:
+                    newsetor = "Laboratório";
+                    break;
+                case 3:
+                    newsetor = "Pedagógico";
+                    break;
+            }
+
+            var setorvalue = [
+                [ newsetor ]
+            ]
+
+            try {
+                const result3 = await gapi.client.sheets.spreadsheets.values.update({
+                    spreadsheetId: sheetId,
+                    range: 'Página1!B5',
+                    values: setorvalue,
+                    valueInputOption: 'USER_ENTERED'
+                });
+            } catch (err) {
+                console.error('Erro ao atualizar planilha', err);
+            }
         }
     });
 });
