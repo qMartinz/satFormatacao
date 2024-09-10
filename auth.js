@@ -13,7 +13,7 @@ let gapiInited = false;
 let gisInited = false;
 
 if (document.getElementById('authorize_button') != null) {
-    document.getElementById('signout_button').style.visibility = 'hidden';
+    document.getElementById('signout_button').hidden = true;
 }
 
 /**
@@ -54,7 +54,7 @@ maybeEnableButtons();
  */
 function maybeEnableButtons() {
 if (gapiInited && gisInited && document.getElementById('authorize_button') != null) {
-    document.getElementById('authorize_button').style.visibility = 'visible';
+    document.getElementById('authorize_button').hidden = false;
 }
 }
 
@@ -67,8 +67,8 @@ tokenClient.callback = async (resp) => {
         reject(resp);
     }
     resolve();
-    document.getElementById('authorize_button').textContent = 'Refresh';
-    document.getElementById('signout_button').style.visibility = 'visible';
+    document.getElementById('authorize_button').textContent = 'Relogar';
+    document.getElementById('signout_button').hidden = false;
     document.getElementById('content').hidden = false;
     changeOptions();
 };
@@ -95,7 +95,7 @@ const token = gapi.client.getToken();
 if (token !== null) {
     google.accounts.oauth2.revoke(token.access_token);
     gapi.client.setToken('');
-    document.getElementById('signout_button').style.visibility = 'hidden';
+    document.getElementById('signout_button').hidden = true;
     document.getElementById('authorize_button').textContent = 'Login';
     document.getElementById('content').hidden = true;
 }

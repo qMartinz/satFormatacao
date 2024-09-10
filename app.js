@@ -37,42 +37,44 @@ async function changeOptions(){
                 select.appendChild(opt);
             };
         });
-    });
-    
-    document.getElementById('cs').addEventListener('change', async function(e){ 
-        await setIdByName(e.target.value);
-            
-        spreadsheetsGet(sheetId, 'A2:F5', function(response) {
-            info.nome = response.result.sheets[0].data[0].rowData[0]["values"][0]["formattedValue"];
-            info.ambiente = response.result.sheets[0].data[0].rowData[0]["values"][1]["formattedValue"];
-            info.modelo = response.result.sheets[0].data[0].rowData[0]["values"][2]["formattedValue"];
-            info.usuario = response.result.sheets[0].data[0].rowData[0]["values"][3]["formattedValue"];
-            info.tipo = response.result.sheets[0].data[0].rowData[0]["values"][4]["formattedValue"];
-            info.ultformatacao = response.result.sheets[0].data[0].rowData[0]["values"][5]["formattedValue"];
-            info.setor = response.result.sheets[0].data[0].rowData[3]["values"][1]["formattedValue"];
-            
-            showExtraItems(getSetorId(info.setor));
-        });
-    });
-    
-    document.getElementById("setor").addEventListener('change', function(e) {        
-        if (e.target.value > 0) {
-            showExtraItems(Number(e.target.value));
-            return;
-        }
 
+        setCustomSelect();
+    });
+}
+
+function changeOS(e) {        
+    if (e.target.checked) {
+        document.getElementById('oscrack').hidden = true;
+        document.getElementById('desativardefenderc').checked = false;
+        document.getElementById('crackc').checked = false;
+    } else {
+        document.getElementById('oscrack').hidden = false;
+    }
+}
+
+function changeSetor(e) {        
+    if (e.value > 0) {
+        showExtraItems(Number(e.value));
+        return;
+    }
+
+    showExtraItems(getSetorId(info.setor));
+}
+
+async function changeComputer(e){ 
+    await setIdByName(e.value);
+        
+    spreadsheetsGet(sheetId, 'A2:F5', function(response) {
+        info.nome = response.result.sheets[0].data[0].rowData[0]["values"][0]["formattedValue"];
+        info.ambiente = response.result.sheets[0].data[0].rowData[0]["values"][1]["formattedValue"];
+        info.modelo = response.result.sheets[0].data[0].rowData[0]["values"][2]["formattedValue"];
+        info.usuario = response.result.sheets[0].data[0].rowData[0]["values"][3]["formattedValue"];
+        info.tipo = response.result.sheets[0].data[0].rowData[0]["values"][4]["formattedValue"];
+        info.ultformatacao = response.result.sheets[0].data[0].rowData[0]["values"][5]["formattedValue"];
+        info.setor = response.result.sheets[0].data[0].rowData[3]["values"][1]["formattedValue"];
+        
         showExtraItems(getSetorId(info.setor));
-    })
-
-    document.getElementById("osoriginalc").addEventListener('change', function(e) {        
-        if (e.target.checked) {
-            document.getElementById('oscrack').hidden = true;
-            document.getElementById('desativardefenderc').checked = false;
-            document.getElementById('crackc').checked = false;
-        } else {
-            document.getElementById('oscrack').hidden = false;
-        }
-    })
+    });
 }
 
 function showExtraItems(setor){
