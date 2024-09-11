@@ -45,9 +45,6 @@ function setCustomSelect() {
                 case "cs":
                     changeComputer(s);
                     break;
-                case "os":
-                    changeOS(s);
-                    break;
                 case "setor":
                     changeSetor(s);
                     break;

@@ -42,7 +42,7 @@ async function changeOptions(){
     });
 }
 
-function changeOS(e) {        
+document.getElementById("osoriginalc").addEventListener('change', function(e) {
     if (e.target.checked) {
         document.getElementById('oscrack').hidden = true;
         document.getElementById('desativardefenderc').checked = false;
@@ -50,7 +50,7 @@ function changeOS(e) {
     } else {
         document.getElementById('oscrack').hidden = false;
     }
-}
+});
 
 function changeSetor(e) {        
     if (e.value > 0) {

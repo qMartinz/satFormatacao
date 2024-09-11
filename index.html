@@ -45,7 +45,7 @@
                             <input type="text" name="ambiente" id="ambiente">
                         </div>
                         <div class="input-container">
-                            <label for="setor" class="text-label">Alterar setor?</label>
+                            <label for="setor" class="text-label">Alterar setor?</label> 
                             <div class="custom-select">
                                 <select name="setor" id="setor">
                                     <option value="0">Não alterar</option>
@@ -64,14 +64,35 @@
                 </div>
                 <div id="preparacao" class="options-container">
                     <h2>Prepare para a formatação</h2>
-                    <div id="verifbackup" hidden> <input type="checkbox" name="verifbackupc" id="verifbackupc"> <label
-                            for="verifbackupc">Verificou o back-up?</label> </div>
-                    <div id="sopr"> <input type="checkbox" name="soprc" id="soprc"> <label for="soprc">Passou o
-                            soprador?</label> </div>
-                    <div id="pastat"> <input type="checkbox" name="pastatc" id="pastatc"> <label for="pastatc">Trocou a
-                            pasta-térmica?</label> </div>
-                    <div id="limpext"> <input type="checkbox" name="limpextc" id="limpextc"> <label for="limpextc">Realizou
-                            a limpeza externa?</label> </div>
+
+                    <div id="verifbackup" hidden> 
+                        <label for="verifbackupc" class="container">Verificou o back-up?
+                            <input type="checkbox" name="verifbackupc" id="verifbackupc"> 
+                            <span class="checkmark"></span>
+                        </label> 
+                    </div>
+
+                    <div id="sopr"> 
+                        <label for="soprc" class="container">Passou o soprador?
+                            <input type="checkbox" name="soprc" id="soprc"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div id="pastat"> 
+                        <label for="pastatc" class="container">Trocou a pasta-térmica?
+                            <input type="checkbox" name="pastatc" id="pastatc"> 
+                            <span class="checkmark"></span>
+                        </label> 
+                    </div>
+
+                    <div id="limpext"> 
+                        <label for="limpextc" class="container">Realizou a limpeza externa?
+                            <input type="checkbox" name="limpextc" id="limpextc"> 
+                            <span class="checkmark"></span>
+                        </label> 
+                    </div>
+
                 </div>
                 <div id="instalacao" class="options-container">
                     <h2>Realize a instalação do sistema operacional</h2>
@@ -85,10 +106,18 @@
                             </select>
                         </div>
                     </div>
-                    <div id="img"> <input type="checkbox" name="imgc" id="imgc"> <label for="imgc">Utilizou uma imagem
-                            pronta?</label> </div>
-                    <div id="clone" hidden> <input type="checkbox" name="clonec" id="clonec"> <label for="clonec">Instalou o
-                            clone do HD/SSD?</label> </div>
+                    <div id="img">
+                        <label for="imgc" class="container">Utilizou uma imagem pronta?
+                            <input type="checkbox" name="imgc" id="imgc">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div id="clone" hidden>
+                        <label for="clonec" class="container">Instalou o clone do HD/SSD?
+                            <input type="checkbox" name="clonec" id="clonec">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
                 <div id="software" class="options-container">
                     <h2>Instale os softwares necessários</h2>
@@ -104,64 +133,177 @@
                     </div>
                     <div id="ninite" class="options-container">
                         <h3>Instale o Ninite</h3>
-                        <div id="chrome"> <input type="checkbox" name="chromec" id="chromec"> <label
-                                for="chromec">Chrome</label> </div>
-                        <div id="firefox"> <input type="checkbox" name="firefoxc" id="firefoxc"> <label
-                                for="firefoxc">Firefox</label> </div>
-                        <div id="foxit"> <input type="checkbox" name="foxitc" id="foxitc"> <label for="foxitc">Foxit
-                                Reader</label> </div>
-                        <div id="vlc"> <input type="checkbox" name="vlcc" id="vlcc"> <label for="vlcc">VLC</label> </div>
-                        <div id="klite"> <input type="checkbox" name="klitec" id="klitec"> <label for="klitec">K-Lite
-                                Codecs</label> </div>
-                        <div id="runtimes"> <input type="checkbox" name="runtimesc" id="runtimesc"> <label
-                                for="runtimesc">Todos os Runtimes</label> </div>
-                        <div id="winrar"> <input type="checkbox" name="winrarc" id="winrarc"> <label
-                                for="winrarc">Winrar</label> </div>
+                        
+                        <div id="chrome" class="checkbox-container"> 
+                            
+                            <label for="chromec" class="container">Chrome
+                                <input type="checkbox" name="chromec" id="chromec">
+                                <span class="checkmark"></span>
+                            </label> 
+                        </div>
+
+                        <div id="firefox" class="checkbox-container">
+                            <label for="firefoxc" class="container">Firefox
+                                <input type="checkbox" name="firefoxc" id="firefoxc">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div id="foxit" class="checkbox-container"> 
+                            <label for="foxitc" class="container">Foxit Reader
+                                <input type="checkbox" name="foxitc" id="foxitc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="vlc" class="checkbox-container"> 
+                            <label for="vlcc" class="container">VLC
+                                <input type="checkbox" name="vlcc" id="vlcc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="klite" class="checkbox-container"> 
+                            <label for="klitec" class="container">K-Lite Codecs
+                                <input type="checkbox" name="klitec" id="klitec"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="runtimes" class="checkbox-container"> 
+                            <label for="runtimesc" class="container">Todos os Runtimes
+                                <input type="checkbox" name="runtimesc" id="runtimesc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="winrar" class="checkbox-container"> 
+                            <label for="winrarc" class="container">Winrar
+                                <input type="checkbox" name="winrarc" id="winrarc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
                     </div>
                     <div id="softadm" class="options-container" hidden>
                         <h3>Instale as necessidades do Administrativo</h3>
-                        <div id="officeadm"> <input type="checkbox" name="officeadmc" id="officeadmc"> <label
-                                for="officeadmc">Pacote Office</label> </div>
-                        <div id="anydesk"> <input type="checkbox" name="anydeskc" id="anydeskc"> <label
-                                for="anydeskc">Anydesk</label> </div>
-                        <div id="eduxe"> <input type="checkbox" name="eduxec" id="eduxec"> <label for="eduxec">Eduxe</label>
+                        <div id="officeadm" class="checkbox-container"> 
+                            <label for="officeadmc" class="container">Pacote Office
+                                <input type="checkbox" name="officeadmc" id="officeadmc"> 
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div id="sigaa"> <input type="checkbox" name="sigaac" id="sigaac"> <label for="sigaac">Sigaa</label>
+                        
+                        <div id="anydesk" class="checkbox-container"> 
+                            <label for="anydeskc" class="container">Anydesk
+                                <input type="checkbox" name="anydeskc" id="anydeskc"> 
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div id="spooler"> <input type="checkbox" name="spoolerc" id="spoolerc"> <label
-                                for="spoolerc">Impressoras necessárias</label> </div>
-                        <div id="backup"> <input type="checkbox" name="backupc" id="backupc"> <label for="backupc">Backup de
-                                documentos</label> </div>
+                        
+                        <div id="eduxe" class="checkbox-container"> 
+                            <label for="eduxec" class="container">Eduxe
+                                <input type="checkbox" name="eduxec" id="eduxec"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="sigaa" class="checkbox-container"> 
+                            <label for="sigaac" class="container">Sigaa
+                                <input type="checkbox" name="sigaac" id="sigaac"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="spooler" class="checkbox-container"> 
+                            <label for="spoolerc" class="container">Impressoras necessárias
+                                <input type="checkbox" name="spoolerc" id="spoolerc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="backup" class="checkbox-container"> 
+                            <label for="backupc" class="container">Backup de documentos
+                                <input type="checkbox" name="backupc" id="backupc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>                        
                     </div>
                     <div id="softlab" class="options-container" hidden>
                         <h3>Instale as necessidades do Laboratório</h3>
-                        <div id="officelab"> <input type="checkbox" name="officelabc" id="officelabc"> <label
-                                for="officelabc">Pacote Office</label> </div>
-                        <div id="prof"> <input type="checkbox" name="profc" id="profc"> <label for="profc">Verificou as
-                                necessidades dos professores?</label> </div>
+                        <div id="officelab" class="checkbox-container"> 
+                            <label for="officelabc" class="container">Pacote Office
+                                <input type="checkbox" name="officelabc" id="officelabc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        
+                        <div id="prof" class="checkbox-container"> 
+                            <label for="profc" class="container">Verificou as necessidades dos professores?
+                                <input type="checkbox" name="profc" id="profc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>                        
                     </div>
                 </div>
                 <div id="finalinst" class="options-container">
                     <h2>Finalize a formatação</h2>
-                    <div id="desativarfire"> <input type="checkbox" name="desativarfirec" id="desativarfirec"> <label
-                            for="desativarfirec">Desative o Firewall</label> </div>
-                    <div id="osoriginal"> <input type="checkbox" name="osoriginalc" id="osoriginalc"> <label
-                            for="osoriginalc">Aplique a licença do Windows se houver</label> </div>
+                    <div id="desativarfire" class="checkbox-container"> 
+                        <label for="desativarfirec" class="container">Desative o Firewall
+                            <input type="checkbox" name="desativarfirec" id="desativarfirec"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    
+                    <div id="osoriginal" class="checkbox-container"> 
+                        <label for="osoriginalc" class="container">Aplique a licença do Windows se houver
+                            <input type="checkbox" name="osoriginalc" id="osoriginalc"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    
                     <div id="oscrack">
-                        <div id="desativardefender"> <input type="checkbox" name="desativardefenderc"
-                                id="desativardefenderc"> <label for="desativardefenderc">Desative o Windows Defender</label>
+                        <div id="desativardefender" class="checkbox-container"> 
+                            <label for="desativardefenderc" class="container">Desative o Windows Defender
+                                <input type="checkbox" name="desativardefenderc" id="desativardefenderc"> 
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
-                        <div id="crack"> <input type="checkbox" name="crackc" id="crackc"> <label for="crackc">Ative o
-                                Windows crackeado</label> </div>
+                        <div id="crack" class="checkbox-container"> 
+                            <label for="crackc" class="container">Ative o Windows crackeado
+                                <input type="checkbox" name="crackc" id="crackc"> 
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
                     </div>
-                    <div id="vnc"> <input type="checkbox" name="vncc" id="vncc"> <label for="vncc">Instale o RealVNC</label>
+                    
+                    <div id="vnc" class="checkbox-container"> 
+                        <label for="vncc" class="container">Instale o RealVNC
+                            <input type="checkbox" name="vncc" id="vncc"> 
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
-                    <div id="bitdefender"> <input type="checkbox" name="bitdefenderc" id="bitdefenderc"> <label
-                            for="bitdefenderc">Instale o BitDefender</label> </div>
-                    <div id="updt"> <input type="checkbox" name="updtc" id="updtc"> <label for="updtc">Rode o Windows
-                            Update</label> </div>
-                    <div id="dominio"> <input type="checkbox" name="dominioc" id="dominioc"> <label for="dominioc">Coloque o
-                            computador no domínio com seu devido nome</label> </div>
+                    
+                    <div id="bitdefender" class="checkbox-container"> 
+                        <label for="bitdefenderc" class="container">Instale o BitDefender
+                            <input type="checkbox" name="bitdefenderc" id="bitdefenderc"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    
+                    <div id="updt" class="checkbox-container"> 
+                        <label for="updtc" class="container">Rode o Windows Update
+                            <input type="checkbox" name="updtc" id="updtc"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    
+                    <div id="dominio" class="checkbox-container"> 
+                        <label for="dominioc" class="container">Coloque o computador no domínio com seu devido nome
+                            <input type="checkbox" name="dominioc" id="dominioc"> 
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>                    
                 </div>
                 <button type="submit" id="submit">Finalizar Formatação</button>
             </form>
