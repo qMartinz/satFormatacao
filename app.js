@@ -208,7 +208,9 @@ document.addEventListener('DOMContentLoaded', function(){
         const resource = {
             values,
         };
-        
+    
+        // TODO loading start
+
         try {
             const result = await gapi.client.sheets.spreadsheets.values.append({
                 spreadsheetId: sheetId,
@@ -298,6 +300,9 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
             } catch (err) {
                 console.error('Erro ao atualizar planilha', err);
+            } finally {
+                // TODO stop loading
+                document.getElementById("formatacao").reset();
             }
         }
     });
