@@ -292,8 +292,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
-        if (data.get('setor') > 0){
-
+        if (data.get('setor') !== '0'){
             var newsetor = "Não alterar";
             switch (data.get('setor')) {
                 case 1:
