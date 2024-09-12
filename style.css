@@ -96,6 +96,7 @@ footer {
 footer p {
     font-family: 'Jersey 10';
     font-size: 1.4rem;
+    text-align: center;
 }
 
 footer a {
@@ -107,6 +108,32 @@ footer a {
 footer a:hover {
     color: var(--title);
     text-shadow: 0 0 14px var(--highlight);
+}
+
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--highlight);
+        margin: 0;
+        flex-basis: 50px;
+        flex: 2;
+        font-family: 'Jersey 10';
+    
+        border-bottom: var(--accent) solid 2px;
+    }
+
+    header h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    header nav {
+        margin: 0;
+    }
 }
 
 /* || Estilo do conteúdo */
@@ -318,7 +345,6 @@ input:hover {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -418,4 +444,30 @@ input:hover {
     background-color: var(--accent);
     border: transparent solid 4px;
     background-clip: content-box;
+}
+
+@media (max-width: 580px) {
+    #content {
+        width: 80%;
+    }
+    
+    section form>div:hover {
+        border: var(--title) solid 2px;
+        box-shadow: 0 0 10px var(--highlight);
+    }
+    
+    h2 {
+        font-family: 'Jersey 10', sans-serif;
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-family: 'Jersey 10', sans-serif;
+        font-size: 1.3rem;
+    }
+    
+    label {
+        font-family: 'Jersey 10', sans-serif;
+        font-size: 1.2rem;
+    }
 }
