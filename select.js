@@ -6,6 +6,10 @@ function setCustomSelect() {
     
     for (i = 0; i < l; i++) {
       selElmnt = x[i].getElementsByTagName("select")[0];
+
+      x[i].innerHTML = '';
+      x[i].appendChild(selElmnt);
+
       ll = selElmnt.length;
       /* For each element, create a new DIV that will act as the selected item: */
       a = document.createElement("DIV");

@@ -1,5 +1,6 @@
-var sheetId;
-var info = {};
+let sheetId;
+let info = {};
+let loading = false;
 
 async function spreadsheetsGet(sheetId, range, callback){
     await new Promise(resolve => setTimeout(() => {
@@ -146,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         const values = [
-            [new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear(), data.get('ambiente') === "" ? "Não alterar" : data.get('ambiente'), alterarsetor, data.get('usuario') === "" ? "Não alterar" : data.get('usuario')]
+            [new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear(), data.get('ambiente') === "" ? "Não alterar" : data.get('ambiente'), alterarsetor, data.get('usuario') === "" ? "Não alterar" : data.get('usuario')]
         ];
 
         values[0].push(data.get('verifbackupc') === "on" ? "Feito" : "Não");
@@ -208,8 +209,20 @@ document.addEventListener('DOMContentLoaded', function(){
         const resource = {
             values,
         };
-    
-        // TODO loading start
+
+        var i = 3;
+
+        document.getElementById('submit').disabled = true;
+
+        var load = setInterval(() => {
+            if (i > 2) {
+                document.getElementById('submit').textContent = 'Carregando';
+                i = 0;
+            } else {
+                document.getElementById('submit').textContent += '.';
+                i += 1;
+            }
+        }, 1000);
 
         try {
             const result = await gapi.client.sheets.spreadsheets.values.append({
@@ -221,10 +234,17 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         } catch (err) {
             console.error('Erro ao adicionar dados:', err);
+        } finally {
+            console.log("finished loading");
+            clearInterval(load);
+            document.getElementById('submit').textContent = "Finalizar Formatação";
+            document.getElementById('submit').disabled = false;
+            document.getElementById("formatacao").reset();
+            setCustomSelect();
         }
 
         var dateValue = [
-            [ new Date().getDate() + "/" + new Date().getMonth() + "/" + new Date().getFullYear() ]
+            [ new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear() ]
         ];
 
         try {
@@ -300,9 +320,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
             } catch (err) {
                 console.error('Erro ao atualizar planilha', err);
-            } finally {
-                // TODO stop loading
-                document.getElementById("formatacao").reset();
             }
         }
     });
