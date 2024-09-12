@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function(){
             document.getElementById('submit').disabled = false;
             document.getElementById("formatacao").reset();
             setCustomSelect();
+            document.getElementById('content').scroll({ top: 0, left: 0, behavior: "smooth" })
         }
 
         var dateValue = [
