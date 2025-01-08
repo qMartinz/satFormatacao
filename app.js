@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         if (data.get('setor') !== '0'){
-            var newsetor = "Não alterar";
+            var newsetor = info.setor;
             switch (data.get('setor')) {
                 case 1:
                     newsetor = "Administrativo";
