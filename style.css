@@ -1,12 +1,29 @@
 /* || Estilo geral */
 
+@font-face {
+    font-family: 'Command';
+    src: url('https://colegiosatelite.com.br/agendamento/ti/style/fonts/retro.ttf');
+}
+
+@font-face {
+    font-family: 'Command';
+    src: url('https://colegiosatelite.com.br/agendamento/ti/style/fonts/retro.ttf');
+    font-weight: bold;
+}
+
 :root {
-    --main: #0F0F0F;
-    --foreground: #232D3F;
-    --title: #FFFFFF;
-    --text: #6e747e;
-    --accent: #005B41;
-    --highlight: #008170;
+    --black: #0c0c0c;
+    --bright-white: #f2f2f2;
+    --white: #cccccc;
+    --cyan: #3a96dd;
+    --bright-red: #e3414f;
+    --red: #c50f1f;
+    --bright-yellow: #f9f1a5;
+    --yellow: #c19c00;
+    --bright-green: #16c20c;
+    --green: #13a10e;
+    --purple: #881798;
+    --blue: #0037da;
 }
 
 * {
@@ -18,7 +35,7 @@
     outline: none;
     text-decoration: none;
     list-style: none;
-    font-family: 'Space Grotesk';
+    font-family: 'Command';
 }
 
 body {
@@ -28,27 +45,27 @@ body {
     overflow-y: auto;
     align-items: stretch;
 
-    background: var(--main);
-    color: var(--text);
+    background: var(--black);
+    color: var(--white);
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--highlight);
+    color: var(--cyan);
     margin: 0;
     flex-basis: 50px;
     flex: 2;
-    font-family: 'Jersey 10';
+    font-family: 'Command';
 
-    border-bottom: var(--accent) solid 2px;
+    border-bottom: var(--white) solid 2px;
 }
 
 header h1 {
-    color: var(--title);
-    font-family: 'Jersey 10';
-    text-shadow: 0 0 14px var(--highlight);
+    color: var(--bright-white);
+    font-family: 'Command';
+    text-shadow: 0 0 14px var(--cyan);
     margin-left: 20px;
     font-size: 3rem;
 }
@@ -61,18 +78,18 @@ header nav {
 }
 
 header nav a {
-    color: var(--accent);
+    color: var(--white);
     transition: text-shadow 0.2s ease-out, color 0.2s ease-out;
-    font-family: 'Jersey 10';
+    font-family: 'Command';
     font-size: 2rem;
 }
 
 header nav a:hover {
-    color: var(--title);
-    text-shadow: 0 0 14px var(--highlight);
+    color: var(--bright-white);
+    text-shadow: 0 0 14px var(--cyan);
 }
 
-main {
+black {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,27 +104,27 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: var(--accent) solid 2px;
-    color: var(--accent);
+    border-top: var(--white) solid 2px;
+    color: var(--white);
     flex-basis: 50px;
     flex: 1;
 }
 
 footer p {
-    font-family: 'Jersey 10';
+    font-family: 'Command';
     font-size: 1.4rem;
     text-align: center;
 }
 
 footer a {
-    color: var(--accent);
+    color: var(--white);
     transition: text-shadow 0.2s ease-out, color 0.2s ease-out;
-    font-family: 'Jersey 10';
+    font-family: 'Command';
 }
 
 footer a:hover {
-    color: var(--title);
-    text-shadow: 0 0 14px var(--highlight);
+    color: var(--bright-white);
+    text-shadow: 0 0 14px var(--cyan);
 }
 
 @media (max-width: 768px) {
@@ -116,13 +133,13 @@ footer a:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: var(--highlight);
+        color: var(--bright-white);
         margin: 0;
         flex-basis: 50px;
         flex: 2;
-        font-family: 'Jersey 10';
+        font-family: 'Command';
     
-        border-bottom: var(--accent) solid 2px;
+        border-bottom: var(--cyan) solid 2px;
     }
 
     header h1 {
@@ -148,17 +165,17 @@ footer a:hover {
     padding: 10px;
     font-size: 2rem;
     background: none;
-    color: var(--accent);
-    border: var(--accent) solid 2px;
-    font-family: 'Jersey 10', sans-serif;
+    color: var(--white);
+    border: var(--white) solid 2px;
+    font-family: 'Command', sans-serif;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .auth-buttons button:hover {
-    text-shadow: 0 0 15px var(--highlight);
-    color: var(--title);
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 15px var(--highlight);
+    text-shadow: 0 0 15px var(--cyan);
+    color: var(--bright-white);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 15px var(--cyan);
 }
 
 section {
@@ -177,28 +194,28 @@ section form>div {
     padding: 10px;
     font-size: 1rem;
     background: none;
-    color: var(--accent);
-    border: var(--accent) solid 2px;
+    color: var(--white);
+    border: var(--white) solid 2px;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 section form>div:hover {
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 10px var(--highlight);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 h2 {
-    font-family: 'Jersey 10', sans-serif;
+    font-family: 'Command', sans-serif;
     font-size: 2rem;
 }
 
 h3 {
-    font-family: 'Jersey 10', sans-serif;
+    font-family: 'Command', sans-serif;
     font-size: 1.5rem;
 }
 
 label {
-    font-family: 'Jersey 10', sans-serif;
+    font-family: 'Command', sans-serif;
     font-size: 1.3rem;
 }
 
@@ -206,30 +223,30 @@ form button {
     padding: 10px;
     font-size: 2rem;
     background: none;
-    color: var(--accent);
-    border: var(--accent) solid 2px;
-    font-family: 'Jersey 10', sans-serif;
+    color: var(--white);
+    border: var(--white) solid 2px;
+    font-family: 'Command', sans-serif;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 form button:hover {
-    text-shadow: 0 0 15px var(--highlight);
-    color: var(--title);
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 10px var(--highlight);
+    text-shadow: 0 0 15px var(--cyan);
+    color: var(--bright-white);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 /* The container must be positioned relative: */
 .custom-select {
     position: relative;
     font-family: Arial;
-    border: var(--accent) solid 2px;
+    border: var(--white) solid 2px;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .custom-select:hover {
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 10px var(--highlight);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 .custom-select select {
@@ -239,8 +256,8 @@ form button:hover {
 
 .select-selected {
     background: none;
-    color: var(--accent);
-    font-family: 'Jersey 10';
+    color: var(--white);
+    font-family: 'Command';
     font-size: 1.3rem;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
@@ -254,12 +271,12 @@ form button:hover {
     width: 0;
     height: 0;
     border: 6px solid transparent;
-    border-color: var(--accent) transparent transparent transparent;
+    border-color: var(--white) transparent transparent transparent;
 }
 
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-    border-color: transparent transparent var(--accent) transparent;
+    border-color: transparent transparent var(--white) transparent;
     top: 7px;
 }
 
@@ -277,8 +294,8 @@ form button:hover {
 /* Style items (options): */
 .select-items {
     position: absolute;
-    background-color: var(--main);
-    border: var(--accent) 2px solid;
+    background-color: var(--black);
+    border: var(--white) 2px solid;
     top: 100%;
     left: 0;
     right: 0;
@@ -289,7 +306,7 @@ form button:hover {
 }
 
 .select-items div {
-    font-family: 'Jersey 10';
+    font-family: 'Command';
     font-size: 1.3rem;
 }
 
@@ -301,12 +318,12 @@ form button:hover {
 .select-items div:hover,
 .same-as-selected {
     background-color: #000000;
-    text-shadow: 0 0 15px var(--highlight);
-    color: var(--title);
+    text-shadow: 0 0 15px var(--cyan);
+    color: var(--bright-white);
 }
 
 .same-as-selected {
-    color: var(--title);
+    color: var(--bright-white);
 }
 
 .options-container {
@@ -326,17 +343,17 @@ form button:hover {
 
 input {
     background: none;
-    border: var(--accent) solid 2px;
-    color: var(--accent);
-    font-family: 'Jersey 10';
+    border: var(--white) solid 2px;
+    color: var(--white);
+    font-family: 'Command';
     font-size: 1.2rem;
     padding: 0.5rem;
     transition: border 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 input:hover {
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 10px var(--highlight);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 /* Customize the label (the container) */
@@ -368,21 +385,21 @@ input:hover {
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: var(--main);
+    background-color: var(--black);
     box-sizing: content-box;
-    border: var(--accent) solid 2px;
+    border: var(--white) solid 2px;
     transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input~.checkmark {
-    border: var(--title) solid 2px;
-    box-shadow: 0 0 10px var(--highlight);
+    border: var(--bright-white) solid 2px;
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 .container:hover {
-    color: var(--title);
-    text-shadow: 0 0 10px var(--highlight);
+    color: var(--bright-white);
+    text-shadow: 0 0 10px var(--cyan);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -404,7 +421,7 @@ input:hover {
     top: 1px;
     width: 5px;
     height: 10px;
-    border: solid var(--accent);
+    border: solid var(--white);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -412,7 +429,7 @@ input:hover {
 }
 
 .container:hover .checkmark:after {
-    border: solid var(--title);
+    border: solid var(--bright-white);
     border-width: 0 3px 3px 0;
 }
 
@@ -437,11 +454,11 @@ input:hover {
 
 #content::-webkit-scrollbar {
     background: none;
-    border: var(--accent) solid 2px;
+    border: var(--white) solid 2px;
 }
 
 #content::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
+    background-color: var(--white);
     border: transparent solid 4px;
     background-clip: content-box;
 }
@@ -452,22 +469,22 @@ input:hover {
     }
     
     section form>div:hover {
-        border: var(--title) solid 2px;
-        box-shadow: 0 0 10px var(--highlight);
+        border: var(--bright-white) solid 2px;
+        box-shadow: 0 0 10px var(--cyan);
     }
     
     h2 {
-        font-family: 'Jersey 10', sans-serif;
+        font-family: 'Command', sans-serif;
         font-size: 1.6rem;
     }
     
     h3 {
-        font-family: 'Jersey 10', sans-serif;
+        font-family: 'Command', sans-serif;
         font-size: 1.3rem;
     }
     
     label {
-        font-family: 'Jersey 10', sans-serif;
+        font-family: 'Command', sans-serif;
         font-size: 1.2rem;
     }
 }
