@@ -89,7 +89,7 @@ header nav a:hover {
     text-shadow: 0 0 14px var(--cyan);
 }
 
-black {
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
